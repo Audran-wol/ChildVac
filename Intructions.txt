@@ -1,0 +1,31 @@
+  manage.py: Django's command-line utility for administrative tasks.
+requirements.txt: A file listing all the required Python packages and their versions.
+README.md: A file containing project documentation and instructions.
+vaccination_app/:
+__init__.py: An empty file that tells Python that this directory should be considered a Python package.
+admin.py: A file to register Django admin models.
+apps.py: A file containing the application configuration.
+forms.py: A file to define Django forms for user input.
+migrations/: A directory to store database migration files.
+models.py: A file to define Django models (database tables).
+static/: A directory to store static files (CSS, JavaScript, images).
+templates/: A directory to store HTML templates.
+admin/: Templates for the admin section.
+hospital/: Templates for the hospital section.
+parent/: Templates for the parent section.
+base.html: A base template to be extended by other templates.
+tests.py: A file for writing unit tests.
+urls.py: A file to define URL patterns and their corresponding views.
+views.py: A file to define view functions that handle HTTP requests and render templates.
+Initial Setup
+
+Create a new directory for your project: mkdir child_vaccination_management_system
+Navigate into the project directory: cd child_vaccination_management_system
+Create a new Python virtual environment: python -m venv env
+Activate the virtual environment:
+On Windows: env\Scripts\activate
+On Unix or macOS: source env/bin/activate
+Install Django: pip install django
+Create a new Django project: django-admin startproject vaccination_management_system .
+Create a new Django app: python manage.py startapp vaccination_app
+Add the vaccination_app to the INSTALLED_APPS list in the settings.py file.
