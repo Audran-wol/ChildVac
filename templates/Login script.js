@@ -9,7 +9,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
   if (username === "admin" && password === "password") {
     alert("Login successful!");
     // Redirect to the dashboard or next page
-    // window.location.href = "dashboard.html";
+    // window.location.href = "Parent home.html";
   } else {
     alert("Invalid username or password. Please try again.");
   }

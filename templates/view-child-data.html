@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Child Data - Child Vaccination System</title>
+  <link rel="stylesheet" type="text/css" href="VC style.css">
+</head>
+<body>
+  <header>
+    <h1>View Child Data</h1>
+    <p>
+      This page displays the child data registered in the Child Vaccination System.
+    </p>
+    <div class="search-container">
+      <input type="text" id="search-input" placeholder="Search by name...">
+      <button id="search-button">Search</button>
+    </div>
+    <h2>Registered Children</h2>
+    <table id="child-table">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Name</th>
+          <th>Date of Birth</th>
+          <th>Parent/Guardian's Number</th>
+        </tr>
+      </thead>
+      <tbody id="child-data"></tbody>
+    </table>
+  </div>
+  <script src="VC script.js"></script>
+</body>
+</html>
