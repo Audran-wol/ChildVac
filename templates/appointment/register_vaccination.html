@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Child for Vaccination</title>
+    {% load static %}
+    <link href="{% static 'heartcare/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'heartcare/css/custom.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% include 'partials/_header.html' %}
+    {% include 'partials/_sidebar.html' %}
+    {% if messages %}
+    <div class="alert alert-success text-center" id="alert-msg">
+      {% for message in messages %}
+      <h3>{{ message }}</h3>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="inner-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>Register Child for Vaccination</h1>
+                </div>
+                <div class="col-md-5">
+                    <ol class="breadcrumb">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li class="active">Register Vaccination</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content padding-0">
+        <section class="appointment-form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6"><img src="{% static 'heartcare/images/form2.jpeg' %}" alt=""></div>
+                    <div class="col-md-6">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="app-form row">
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <input class="form-control" placeholder="Child's Full Name *" type="text" name="name">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <input class="form-control" placeholder="Parent's Full Name *" type="text" name="parent_name">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <input class="form-control" placeholder="Child's Age *" type="number" name="age">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <select class="form-control" name="gender">
+                                        <option disabled selected>--Gender--</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="picture" name="picture">
+                                        <label class="custom-file-label" for="picture">Choose file</label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <select class="form-control" name="vaccine">
+                                        <option disabled selected>--Vaccine--</option>
+                                        {% for service in vaccination_form.fields.vaccine.queryset %}
+                                        <option value="{{ service.id }}">{{ service.title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <select class="form-control" name="doctor">
+                                        <option disabled selected>--Hospital--</option>
+                                        {% for doctor in vaccination_form.fields.doctor.queryset %}
+                                        <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6">
+                                    <div class="input-group date">
+                                        <input placeholder="Date *" name="date" class="form-control" type="date">
+                                        <span class="input-group-addon"> <i class="fa fa-calendar" aria-hidden="true"></i> </span>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12 text-center">
+                                    <button type="submit" class="btn btn-primary">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    {% include 'partials/_footer.html' %}
+    <script src="{% static 'heartcare/js/jquery.min.js' %}"></script>
+    <script src="{% static 'heartcare/js/bootstrap.min.js' %}"></script>
+    <script>
+        // Add the following script to update the label of the custom file input
+        $('.custom-file-input').on('change', function(event) {
+            var inputFile = event.currentTarget;
+            $(inputFile).parent()
+                .find('.custom-file-label')
+                .html(inputFile.files[0].name);
+        });
+    </script>
+</body>
+</html>

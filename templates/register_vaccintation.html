@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Child for Vaccination</title>
+</head>
+<body>
+    <h2>Register Child for Vaccination</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ child_form.as_p }}
+        {{ vaccination_form.as_p }}
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
