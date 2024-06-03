@@ -102,7 +102,7 @@ Contributions are welcome! Please follow the guidelines in the [CONTRIBUTING.md]
 
 ## Author
 <blockquote>
-Mahmudul alam
+Audran Tiedang
 Email: audranwolfhards@gmail.com
 </blockquote>
 
