@@ -49,12 +49,14 @@ child_vaccination_management_system/
   - View appointment details
   - Export and save appointment data
 
-## Technologies Used
+# Requirements
+```
+open requirements.txt file to see requirements
 
-- Python
-- Django (Web Framework)
-- HTML, CSS, JavaScript (Front-end)
-- MySQL (Database)
+To install requirements type
+
+pip install -r requirements.txt
+```
 
 ## Getting Started
 
@@ -65,9 +67,44 @@ child_vaccination_management_system/
 5. Run database migrations
 6. Start the development server
 
+# To migrate the database open terminal in project directory and type
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+# To collect static files
+```
+python manage.py collectstatic
+```
+# Creating Superuser
+To create superuser open terminal and type
+```
+python manage.py createsuperuser
+```
+# For email sending functionality fill up the information in Your Project setting
+```
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your email'
+EMAIL_HOST_PASSWORD = 'your email password'
+```
+# To run the program in local server use the following command
+```
+python manage.py runserver
+```
+Then go to http://127.0.0.1:8000 in your browser
+
 ## Contributing
 
 Contributions are welcome! Please follow the guidelines in the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+## Author
+<blockquote>
+Mahmudul alam
+Email: audranwolfhards@gmail.com
+</blockquote>
 
 ## License
 
